@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Json from "@/components/Json";
 import ReportTable from "@/components/ReportTable";
 import { useState } from "react";
+import Login from "@/components/Login";
 
 export default function Home() {
   const [object, setObject] = useState({});
@@ -13,6 +14,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col justify-between">
+      <Login />
       <Header />
       <div className="formcontainer mt-2">
         <Form setObject={setObject} setFlag={setFlag} />
