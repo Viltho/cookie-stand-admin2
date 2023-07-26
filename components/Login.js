@@ -1,35 +1,21 @@
-import Head from 'next/head';
-import { useAuth } from '../contexts/Auth';
+import Head from "next/head";
+import { useAuth } from "../contexts/Auth";
 
-export default function Login() {
-
-    const {login, user, logout} = useAuth(); 
-
-    // const user = {username:"roaa", password:"roaa"};
-    // send req to server -> tokens
-
-    return (
-        <div>
-            <Head>
-                <title>Cookie Stand Demo</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-
-            <main className="p-4 space-y-8 text-center">
-                <h1 className="text-4xl">Fetching Data from Authenticated API</h1>
-                
-                {user ? (
-                    <>
-                    <button className="p-2 text-white bg-gray-500 rounded" onClick={()=>logout()}>Logout</button>
-                    <h2>Welcome {user.username}</h2>
-                    </>
-                ) : (
-                    <>
-                    <button className="p-2 text-white bg-gray-500 rounded" onClick={()=>login("toqa","toqa2121")}>Login</button>
-                    <h2>Need to log in</h2>
-                    </>
-                )}
-            </main>
-        </div>
-    )
+export default function LoginForm() {
+    const { login } = useAuth();
+    const handleClick = (e) => {
+        e.preventDefault();
+        login(e.target.username.value, e.target.password.value)
+    }
+  return (
+    <div className="flex formcontainer justify-center">
+        <form onSubmit={handleClick} className="input_container">
+            <p>USER NAME</p>
+            <input type="text" name="username"/>
+            <p>PASSWORD</p>
+            <input type="password" name="password"/>
+            <button className="btn_green" type="submit">Login</button>
+        </form>
+    </div>
+  );
 }

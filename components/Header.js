@@ -1,12 +1,14 @@
 import React from 'react'
-import Login from './Login'
+import { useAuth } from "../contexts/Auth";
 
 const Header = () => {
+  const { logout } = useAuth();
   return (
-    <div>
-        <p className='header_component'>
+    <div className="flex justify-around header_component">
+        <p className=''>
             Cookie Stand Admin
         </p>
+        <button onClick={logout}>logout</button>
     </div>
   )
 }
