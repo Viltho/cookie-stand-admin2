@@ -4,8 +4,8 @@ const TableRow = ({object, summation, name}) => {
   return (
     <tr className="border border-black">
       <td>{name}</td>
-      {object.map((item) => (
-        <td key={item} className="border border-black px-1">{item}</td>
+      {object.map((item, index) => (
+        <td key={index} className="border border-black px-1">{item}</td>
       ))}
       <td className="font-bold">{summation(object)}</td>
     </tr>
