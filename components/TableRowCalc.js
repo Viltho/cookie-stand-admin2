@@ -5,7 +5,7 @@ const TableRowCalc = ({ object, name, summation }) => {
 
   useEffect(() => {
     calculateObject(object);
-  }, []);
+  }, [list]);
 
   const calculateObject = (listOfLists) => {
     const sums = Array.from({ length: 14 }, () => 0);

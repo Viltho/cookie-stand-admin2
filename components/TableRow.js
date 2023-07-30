@@ -5,7 +5,7 @@ const TableRow = ({object, summation, name}) => {
     <tr className="border border-black">
       <td>{name}</td>
       {object.map((item) => (
-        <td className="border border-black px-1">{item}</td>
+        <td key={item} className="border border-black px-1">{item}</td>
       ))}
       <td className="font-bold">{summation(object)}</td>
     </tr>
