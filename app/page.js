@@ -1,5 +1,8 @@
 "use client";
 
+import Head from 'next/head';
+import useResource from '../hooks/useResource';
+
 import Footer from "@/components/Footer";
 import Form from "@/components/CreateForm";
 import Header from "@/components/Header";
@@ -10,9 +13,10 @@ import LoginForm from "@/components/Login";
 import { useAuth } from "../contexts/Auth";
 
 export default function Home() {
-  const { user } = useAuth();
+  const { user, login, logout } = useAuth();
   const [object, setObject] = useState({});
   const [flag, setFlag] = useState(false);
+  // const {resource, loading, createResource, deleteResource} = useResource();
 
   return (
     <main className="flex min-h-screen flex-col justify-between">
@@ -38,3 +42,5 @@ export default function Home() {
     </main>
   );
 }
+
+

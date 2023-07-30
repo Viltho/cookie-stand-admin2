@@ -32,7 +32,7 @@ export function AuthProvider(props){
             headers : {'Content-Type' : 'application/json'}
         }
 
-        const response = await fetch(tokenUrl,options)
+        const response = await fetch(tokenUrl, options)
         const data = await response.json()
         const decodedAccess = jwt.decode(data.access)
         const newState = {
